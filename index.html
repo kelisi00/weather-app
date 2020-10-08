@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>⛅Forecast</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet" />
+
+    <script src="https://kit.fontawesome.com/a80831d35d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="container shadow">
+        <div class="search-bar">
+            <div class="input-group mb-3 mx-auto">
+                <input type="text" class="form-control rounded-pill" placeholder="Enter City or Zip Code"
+                    aria-label="Enter City of Zip Code" aria-describedby="button-addon2" id="search-bar" />
+
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary rounded-pill" type="button" id="button-addon2">
+                        <i class="fas fa-search"> </i>
+                    </button>
+                    <button class="btn btn-outline-secondary rounded-pill" type="button" id="current-location-button">
+                        Current Location
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center" id="search-result">
+            <div class="col my-auto">
+                <h2 class="font-weight-bold" id="city-result">Miami</h2>
+                <div id="country">USA</div>
+                <div id="dateTime">Tuesday 14:00</div>
+            </div>
+            <div class="col my-auto">
+                <h3 class="text-center font-weight-bold temperature-result" id="temp-display">
+                    50<span>°</span>
+                </h3>
+                <a href="#" class="btn btn-light btn-outline-secondary btn-sm active" role="button" aria-pressed="true"
+                    id="farenheit-button">°F</a>
+                <a href="#" class="btn btn-outline-secondary btn-sm active" role="button" aria-pressed="true"
+                    id="celcius-button">°C</a>
+            </div>
+            <div class="col my-auto" id="search-result-emoji">
+                🔆
+            </div>
+            <div class="col my-auto" id="description">desc-rip-tion</div>
+        </div>
+        <div class="col">
+            <ul class="list-group list-group-horizontal flex-wrap">
+                <li class="list-group-item rounded-pill flex-fill shadow">
+                    Mon<br /><strong>79°</strong> 73°<img
+                        src="image/iconfinder_weather_cloud_sun_moon_rain-17_5896941.svg"
+                        class="weather-icon img-fluid my-auto" alt="" />
+                </li>
+                <li class="list-group-item rounded-pill flex-fill shadow">
+                    Tue<br /><strong>79°</strong> 73°<img
+                        src="image/iconfinder_weather_cloud_sun_moon_rain-17_5896941.svg"
+                        class="weather-icon img-fluid my-auto" alt="" />
+                </li>
+                <li class="list-group-item rounded-pill flex-fill shadow">
+                    Wed<br /><strong>79°</strong> 73°
+                    <img src="image/iconfinder_weather_cloud_sun_moon_rain-17_5896941.svg"
+                        class="weather-icon img-fluid my-auto" alt="" />
+                </li>
+                <li class="list-group-item rounded-pill flex-fill shadow">
+                    Thu<br /><strong>79°</strong> 73°<img
+                        src="image/iconfinder_weather_cloud_sun_moon_rain-17_5896941.svg"
+                        class="weather-icon img-fluid my-auto" alt="" />
+                </li>
+                <li class="list-group-item rounded-pill flex-fill shadow">
+                    Fri<br /><strong>79°</strong> 73°<img
+                        src="image/iconfinder_weather_cloud_sun_moon_rain-17_5896941.svg"
+                        class="weather-icon img-fluid my-auto" alt="" />
+                </li>
+            </ul>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <ul class="weather-data1">
+                    <li>
+                        Feels like
+                        <strong id="feels-like"></strong>
+                    </li>
+                    <li>
+                        Humidity
+                        <strong id="humidity">20%</strong>
+                    </li>
+                    <li>
+                        Wind
+                        <strong id="wind-speed">2mph</strong>
+                    </li>
+                </ul>
+            </div>
+            <div class="partition"></div>
+            <div class="col">
+                <ul class="weather-data2">
+                    <li>
+                        Sunrise
+                        <strong>7:00 am</strong>
+                    </li>
+                    <li>
+                        Sunset
+                        <strong>7:35 pm</strong>
+                    </li>
+                    <li>
+                        Moon <strong>Waxing Gibbous</strong> <span class="flex">🌘</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <p class="font-weight-light">Coded by Raquel Garcia del Real</p>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
