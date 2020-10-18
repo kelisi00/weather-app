@@ -57,12 +57,8 @@ ul {
 }
 
 #search-result-emoji {
-  font-size: 60px;
+  font-size: 50px;
 }
 #description {
-  font-size: 30px;
-}
-
-#city-result {
-  font-size: 50px;
+  font-size: 20px;
 }
