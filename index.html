@@ -19,7 +19,6 @@
             <div class="input-group mb-3 mx-auto">
                 <input type="text" class="form-control rounded-pill" placeholder="Enter City or Zip Code"
                     aria-label="Enter City of Zip Code" aria-describedby="button-addon2" id="search-bar" />
-
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary rounded-pill" type="button" id="button-addon2">
                         <i class="fas fa-search"> </i>
@@ -32,12 +31,12 @@
         </div>
 
         <div class="row justify-content-center" id="search-result">
-            <div class="col my-auto">
+            <div class="col">
                 <h2 class="font-weight-bold" id="city-result">Miami</h2>
                 <div id="country">USA</div>
                 <div id="dateTime">Tuesday 14:00</div>
             </div>
-            <div class="col my-auto">
+            <div class="col">
                 <h3 class="text-center font-weight-bold temperature-result" id="temp-display">
                     50<span>°</span>
                 </h3>
@@ -46,32 +45,26 @@
                 <a href="#" class="btn btn-outline-secondary btn-sm active" role="button" aria-pressed="true"
                     id="celcius-button">°C</a>
             </div>
-            <div class="col my-auto" id="search-result-emoji">
+            <div class="col" id="search-result-emoji">
                 🔆
             </div>
-            <div class="col my-auto" id="description">desc-rip-tion</div>
+            <div class="col" id="description">sunny</div>
         </div>
-        <div class="col">
-            <ul class="list-group list-group-horizontal flex-wrap">
-                <li class="list-group-item rounded-pill flex-fill shadow">
-                    Mon<br /><strong>79°</strong> 73°
-                </li>
-                <li class="list-group-item rounded-pill flex-fill shadow">
-                    Tue<br /><strong>79°</strong> 73°
-                </li>
-                <li class="list-group-item rounded-pill flex-fill shadow">
-                    Wed<br /><strong>79°</strong> 73°
-                   
-                </li>
-                <li class="list-group-item rounded-pill flex-fill shadow">
-                    Thu<br /><strong>79°</strong> 73°
-                </li>
-                <li class="list-group-item rounded-pill flex-fill shadow">
-                    Fri<br /><strong>79°</strong> 73°
-                </li>
-            </ul>
+        <div class="row forecast">
+            <div class="col-2 rounded-pill flex-fill shadow">
+                Mon<br /><strong>79°</strong> 73°</div>  
+            <div class="col-2 rounded-pill flex-fill shadow">
+                Mon<br /><strong>79°</strong> 73° </div>
+            <div class="col-2 rounded-pill flex-fill shadow">
+                Mon<br /><strong>79°</strong> 73°</div>
+            <div class="col-2 rounded-pill flex-fill shadow">
+                Mon<br /><strong>79°</strong> 73°</div>
+            <div class="col-2 rounded-pill flex-fill shadow">
+                Mon<br /><strong>79°</strong> 73°</div>
+            <div class="col-2 rounded-pill flex-fill shadow">
+                Mon<br /><strong>79°</strong> 73°</div>
         </div>
-        <br />
+       
         <div class="row">
             <div class="col">
                 <ul class="weather-data1">
@@ -107,8 +100,9 @@
             </div>
         </div>
         <br />
-        <p class="font-weight-light">Coded by <a href="https://github.com/kelisi00/weather-app" target="_blank">Raquel Garcia del Real</a></p>
     </div>
-    <script src="index.js"></script>
+    <p class="font-weight-light">Coded by <a href="https://github.com/kelisi00/weather-app" target="_blank">Raquel Garcia
+            del Real</a></p>
+    <script src="index.js"></script>  
 </body>
 </html>
