@@ -15,6 +15,7 @@ function changeTime() {
   let day = days[currentTime.getDay()];
   return `${day} ${hour}:${minutes}`;
 }
+
 let dateTime = document.querySelector("#dateTime");
 dateTime.innerHTML = changeTime();
 
@@ -34,16 +35,6 @@ console.log(response.data);
   let currentDescription = document.querySelector("#description");
   currentDescription.innerHTML = response.data.weather[0].description;
 
-  let weatherEmoji = document.querySelector("#search-result-emoji");
-  if (response.data.weather[0].description === "clear sky") {
-    weatherEmoji.innerHTML = "🔆";
-  } else {
-    if (response.data.weather[0].description === "moderate rain") {
-      weatherEmoji.innerHTML = "🌦";
-    } else {
-      weatherEmoji.innerHTML = "⛅";
-    }
-  }
   let wind = document.querySelector("#wind-speed");
   wind.innerHTML = `${response.data.wind.speed}mph`;
 
@@ -56,6 +47,9 @@ console.log(response.data);
 
   let setIcon=document.querySelector("#search-result-emoji");
   setIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  
+  let pressure=document.querySelector("#pressure");
+  pressure.innerHTML=`${response.data.main.pressure} mbar`
 }
 
 // city by doing a search
@@ -106,3 +100,5 @@ farenheitButton.addEventListener(`click`, changeFarenheit);
 
 let celciusButton = document.querySelector("#celcius-button");
 celciusButton.addEventListener("click", changeCelcius);
+
+
