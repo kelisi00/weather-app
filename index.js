@@ -23,32 +23,26 @@ dateTime.innerHTML = changeTime();
 function displayWeather(response) {
 console.log(response.data);
   let cityResult = document.querySelector("#city-result");
-  cityResult.innerHTML = response.data.name;
-
-  let temperature = Math.round(response.data.main.temp);
-  let tempResult = document.querySelector("#temp-display");
-  tempResult.innerHTML = `${temperature}°`;
-
-  let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = `${response.data.main.humidity}%`;
-
-  let currentDescription = document.querySelector("#description");
-  currentDescription.innerHTML = response.data.weather[0].description;
-
-  let wind = document.querySelector("#wind-speed");
-  wind.innerHTML = `${response.data.wind.speed}mph`;
-
-  let feels = Math.round(response.data.main.feels_like);
-  let feelsLike = document.querySelector("#feels-like");
-  feelsLike.innerHTML = `${feels}°`;
-
   let currentCountry = document.querySelector("#country");
-  currentCountry.innerHTML = response.data.sys.country;
-
+  let tempResult = document.querySelector("#temp-display");
   let setIcon=document.querySelector("#search-result-emoji");
-  setIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-  
+  let currentDescription = document.querySelector("#description");
+  let feelsLike = document.querySelector("#feels-like");
+  let feels = Math.round(response.data.main.feels_like);
+  let humidity = document.querySelector("#humidity");
+  let wind = document.querySelector("#wind-speed");
   let pressure=document.querySelector("#pressure");
+ 
+  celsiusTemp = Math.round(response.data.main.temp);
+
+  cityResult.innerHTML = response.data.name;
+  currentCountry.innerHTML = response.data.sys.country;
+  tempResult.innerHTML = celsiusTemp;
+  setIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  currentDescription.innerHTML = response.data.weather[0].description;
+  feelsLike.innerHTML = `${feels}°`;
+  humidity.innerHTML = `${response.data.main.humidity}%`;
+  wind.innerHTML = `${response.data.wind.speed}mph`;
   pressure.innerHTML=`${response.data.main.pressure} mbar`
 }
 
@@ -85,15 +79,18 @@ function showPosition(position) {
 //change from Celcius to Farenheit
 function changeFarenheit(event) {
   event.preventDefault();
-  let h3 = document.querySelector("h3");
-  h3.innerHTML = "70°F";
+  let farenheitTemp = document.querySelector("#temp-display");
+  farenheitTemp.innerHTML =Math.round((celsiusTemp * 9) / 5 + 32);
 }
 
 function changeCelcius(event) {
   event.preventDefault();
-  let h3 = document.querySelector("h3");
-  h3.innerHTML = "20°C";
+  celciusButton.classList.add("active");
+  let temperatureElement = document.querySelector("#temp-display");
+  temperatureElement.innerHTML = celsiusTemp
 }
+ let celsiusTemp = null;
+
 
 let farenheitButton = document.querySelector("#farenheit-button");
 farenheitButton.addEventListener(`click`, changeFarenheit);
