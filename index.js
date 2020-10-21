@@ -79,6 +79,8 @@ function showPosition(position) {
 //change from Celcius to Farenheit
 function changeFarenheit(event) {
   event.preventDefault();
+  celciusButton.classList.remove("active");
+  farenheitButton.classList.add("active");
   let farenheitTemp = document.querySelector("#temp-display");
   farenheitTemp.innerHTML =Math.round((celsiusTemp * 9) / 5 + 32);
 }
@@ -86,6 +88,7 @@ function changeFarenheit(event) {
 function changeCelcius(event) {
   event.preventDefault();
   celciusButton.classList.add("active");
+  farenheitButton.classList.remove("active");
   let temperatureElement = document.querySelector("#temp-display");
   temperatureElement.innerHTML = celsiusTemp
 }
@@ -97,5 +100,4 @@ farenheitButton.addEventListener(`click`, changeFarenheit);
 
 let celciusButton = document.querySelector("#celcius-button");
 celciusButton.addEventListener("click", changeCelcius);
-
 
