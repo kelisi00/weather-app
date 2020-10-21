@@ -20,6 +20,7 @@ dateTime.innerHTML = changeTime();
 
 //display search result
 function displayWeather(response) {
+console.log(response.data);
   let cityResult = document.querySelector("#city-result");
   cityResult.innerHTML = response.data.name;
 
@@ -52,6 +53,9 @@ function displayWeather(response) {
 
   let currentCountry = document.querySelector("#country");
   currentCountry.innerHTML = response.data.sys.country;
+
+  let setIcon=document.querySelector("#search-result-emoji");
+  setIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 // city by doing a search
@@ -59,7 +63,6 @@ function getWeather(event) {
   event.preventDefault();
   let key = `7372c61a1ccb0bd3a2eab67877337642`;
   let city = document.querySelector("#search-bar").value;
-  console.log(city);
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${units}`;
   axios.get(apiUrl).then(displayWeather);
