@@ -1,5 +1,5 @@
 //update current date and time
-function changeTime() {
+function changeTime(timestamp) {
   let currentTime = new Date();
   let hour = currentTime.getHours();
   let minutes = currentTime.getMinutes();
@@ -46,7 +46,9 @@ function displayWeather(response) {
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind-speed");
   let pressure=document.querySelector("#pressure");
- 
+  let sunrise=document.querySelector("#sunrise");
+  let sunset=document.querySelector("#sunset");
+
   celsiusTemp = Math.round(response.data.main.temp);
 
   cityResult.innerHTML = response.data.name;
@@ -57,18 +59,26 @@ function displayWeather(response) {
   feelsLike.innerHTML = `${feels}°`;
   humidity.innerHTML = `${response.data.main.humidity}%`;
   wind.innerHTML = `${response.data.wind.speed}mph`;
-  pressure.innerHTML=`${response.data.main.pressure} mbar`
+  pressure.innerHTML=`${response.data.main.pressure} mbar`;
+
+  sunrise.innerHTML=`${formatTime(response.data.sys.sunrise)} am`;
+  sunset.innerHTML= `${formatTime(response.data.sys.sunset)} pm`;
+  
+  console.log (response);
 }
+
+
 //display forecast
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML=null;
   let forecast= null
 
   console.log(forecast);
 
   for (let index = 0; index < 6; index++) {
-    forecast = response.data.list[index];
-   forecastElement.innerHTML=`
+  forecast = response.data.list[index];
+  forecastElement.innerHTML+=`
   <div class="col-2 rounded-pill flex-fill shadow">
   ${formatTime(forecast.dt*1000)}
   <br />

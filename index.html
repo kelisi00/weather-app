@@ -37,7 +37,9 @@
                 <div id="dateTime">Tuesday 14:00</div>
             </div>
             <div class="col">
-                <h3 class="text-center font-weight-bold temperature-result" id="temp-display">
+               <div class="text-center temperature-result">
+                <div>Current Temperature</div>
+                <h3 id="temp-display">
                     50
                 </h3>
                 <a href="#" class="btn btn-light btn-outline-secondary btn-sm" role="button" aria-pressed="true"
@@ -45,9 +47,9 @@
                 <a href="#" class="btn btn-outline-secondary btn-sm active" role="button" aria-pressed="true"
                     id="celcius-button">°C</a>
             </div>
+            </div>
             <div class="col">
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" id="search-result-emoji">
-               
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" id="search-result-emoji" id="weather-icon">
                 <div id="description">sunny</div>
             </div>
             
@@ -76,11 +78,11 @@
                 <ul class="weather-data2">
                     <li>
                         Sunrise
-                        <strong id="sunrise">7:00 am</strong>
+                        <strong id="sunrise">7:00</strong>
                     </li>
                     <li>
                         Sunset
-                    <strong id="sunset">7:00 pm</strong>
+                    <strong id="sunset">19:00</strong>
                     </li>
                     <li>Pressure 
                         <strong id="pressure">1000 mbar</strong>
